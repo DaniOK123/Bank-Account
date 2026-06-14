@@ -31,7 +31,7 @@ class Conto_corrente:
         if nuovo_saldo > 0:
             self.saldo -= nuovo_saldo
 
-            if nuovo_saldo > self.saldo:
+            if self.saldo < 0:
                 print("Non hai abbastanza denaro")
                 raise ValueError
 
@@ -48,6 +48,6 @@ persona1 = Conto_corrente('Daniel', 400, 1234)
 persona1.deposita = 10
 persona1.deposita = 5
 
-persona1.preleva = 500
+persona1.preleva = 400
 
 print(persona1.mostra_saldo())
