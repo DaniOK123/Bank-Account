@@ -27,8 +27,14 @@ class Conto_corrente:
 
     @preleva.setter
     def preleva(self, nuovo_saldo):
-        if nuovo_saldo < 0:
+
+        if nuovo_saldo > 0:
             self.saldo -= nuovo_saldo
+
+            if nuovo_saldo > self.saldo:
+                print("Non hai abbastanza denaro")
+                raise ValueError
+
         else:
             print("Il prelievo di soldi è nullo")
 
@@ -42,6 +48,6 @@ persona1 = Conto_corrente('Daniel', 400, 1234)
 persona1.deposita = 10
 persona1.deposita = 5
 
-persona1.preleva = -50
+persona1.preleva = 500
 
 print(persona1.mostra_saldo())
